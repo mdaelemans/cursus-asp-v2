@@ -7,9 +7,11 @@ namespace Blog
   {
     static void Main(string[] args)
     {
+      // Blog
       var blog = new Blog();
       blog.Name = "My new blog";
 
+      // BlogPost
       var blogPost = new BlogPost();
       blogPost.Title = "my first blogpost";
       blog.BlogPosts = new List<BlogPost>();
@@ -17,8 +19,17 @@ namespace Blog
 
       blogPost.Blog = blog;
 
+      // Author
+      var author = new Author();
+      author.Name = "Matthias Daelemans";
+      author.BlogPosts = new List<BlogPost>();
+      author.BlogPosts.Add( blogPost );
+
+      blogPost.Author = author;
+
       Console.WriteLine($"Naam van mijn blog: {blogPost.Blog.Name}");
       Console.WriteLine($"Naam van mijn blogpost: {blogPost.Title}");
+      Console.WriteLine($"Auteur van mijn blogpost: {blogPost.Author.Name}");
     }
     /*
       Blog, Blogpost, Author, Category, Comment

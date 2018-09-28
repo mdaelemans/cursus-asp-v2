@@ -15,6 +15,7 @@ namespace Blog
       var blogPost = new BlogPost();
       blogPost.Title = "my first blogpost";
       blogPost.Categories = new List<Category>();
+      blogPost.Comments = new List<Comment>();
       blog.BlogPosts = new List<BlogPost>();
       blog.BlogPosts.Add(blogPost);
 
@@ -36,10 +37,18 @@ namespace Blog
 
       blogPost.Categories.Add( category );
 
+      // Comment
+      var comment = new Comment();
+      comment.Body = "This is my comment.";
+      comment.BlogPost = blogPost;
+
+      blogPost.Comments.Add( comment );
+
       Console.WriteLine($"Naam van mijn blog: {blogPost.Blog.Name}");
       Console.WriteLine($"Naam van mijn blogpost: {blogPost.Title}");
       Console.WriteLine($"Auteur van mijn blogpost: {blogPost.Author.Name}");
       Console.WriteLine($"Categorie van mijn blogpost: {blogPost.Categories[0].Title}");
+      Console.WriteLine($"Comment op mijn blogpost: {blogPost.Comments[0].Body}");
     }
     /*
       Blog, Blogpost, Author, Category, Comment
